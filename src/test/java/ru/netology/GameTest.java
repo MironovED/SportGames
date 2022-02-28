@@ -15,7 +15,7 @@ class GameTest {
         game.register(new Player(1, "Vladimir", 5));
         game.register(new Player(2, "Anton", 7));
 
-//        game.findByName("Vladimir");
+
         game.round("Vladimir", "Anton");
 
 //        assertEquals(1, game.round("Vladimir", "Vasya"));

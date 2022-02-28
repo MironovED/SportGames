@@ -18,4 +18,6 @@ public class Player implements Comparator <Player> {
     public int compare(Player o1, Player o2) {
         return o1.getStrength() - o2.getStrength();
     }
+
+
 }
