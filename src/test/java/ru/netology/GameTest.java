@@ -1,5 +1,6 @@
 package ru.netology;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 
@@ -42,6 +43,33 @@ class GameTest {
         int actual = game.round("Vladimir", "Anton");
 
         assertEquals(2, actual);
+
+    }
+
+    @Test
+    void shouldExcWhenTwoPlayersUnreg() {
+        game.register(new Player(1, "Vladimir", 6));
+        game.register(new Player(2, "Anton", 7));
+
+        Assertions.assertThrows(NotRegisteredException.class, () -> game.round("Oleg", "Nikolai"));
+
+    }
+
+    @Test
+    void shouldExcWhenFirstPlayerUnreg() {
+        game.register(new Player(1, "Vladimir", 6));
+        game.register(new Player(2, "Anton", 7));
+
+        Assertions.assertThrows(NotRegisteredException.class, () -> game.round("Oleg", "Anton"));
+
+    }
+
+    @Test
+    void shouldExcWhenSecondPlayerUnreg() {
+        game.register(new Player(1, "Vladimir", 6));
+        game.register(new Player(2, "Anton", 7));
+
+        Assertions.assertThrows(NotRegisteredException.class, () -> game.round("Vladimir", "Oleg"));
 
     }
 }
