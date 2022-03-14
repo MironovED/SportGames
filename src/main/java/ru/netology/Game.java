@@ -25,22 +25,18 @@ public class Game {
         if (findByName(playerName1) == null || findByName(playerName2) == null) {
             throw new NotRegisteredException("One of the players is not registered");
         }
-        Player[] Player = players.toArray(new Player[0]);
-        int player1 = getStrength(Player[0]);
-        int player2 = getStrength(Player[1]);
-        int result = player1 - player2;
-        if (result < 0) {
+
+        Player player1 = findByName(playerName1);
+        Player player2 = findByName(playerName2);
+        int result = player1.getStrength() - player2.getStrength();
+
+        if (result > 0) {
             return 1;
         }
-        if (result > 0) {
+        if (result < 0) {
             return 2;
         }
-        return result;
-    }
-
-
-    public int getStrength(Player o) {
-        return o.getStrength();
+        return 0;
     }
 
 }
