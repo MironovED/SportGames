@@ -1,5 +1,6 @@
 package ru.netology;
 
+
 import java.util.*;
 
 
@@ -38,6 +39,7 @@ public class Game {
         }
         return 0;
     }
+
 
 }
 
