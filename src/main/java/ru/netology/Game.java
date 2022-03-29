@@ -4,16 +4,16 @@ import java.util.*;
 
 
 public class Game {
-    private List<Player> players = new ArrayList<>();
+    private HashMap<String, Player> players = new HashMap<>();
 
-    public void register(Player player) {
-        players.add(player);
+
+    public void register(Player player, String name) {
+        players.put(name, player);
     }
 
-
-    public Player findByName(String playerName) {
-        for (Player player : players) {
-            if (player.getName().contains(playerName)) {
+    public Map.Entry<String, Player> findByName(String playerName) {
+        for (Map.Entry<String, Player> player : players.entrySet()) {
+            if (player.getKey().contains(playerName)) {
                 return player;
             }
         }
@@ -26,8 +26,8 @@ public class Game {
             throw new NotRegisteredException("One of the players is not registered");
         }
 
-        Player player1 = findByName(playerName1);
-        Player player2 = findByName(playerName2);
+        Player player1 = players.get(playerName1);
+        Player player2 = players.get(playerName2);
         int result = player1.getStrength() - player2.getStrength();
 
         if (result > 0) {

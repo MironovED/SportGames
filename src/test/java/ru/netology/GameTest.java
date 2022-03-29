@@ -22,16 +22,16 @@ class GameTest {
 
     @Test
     void roundWhenFirstPlayerWin() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
-        game.register(player6);
-        game.register(player7);
-        game.register(player8);
-        game.register(player9);
-        game.register(player10);
+        game.register(player1, "Vladimir");
+        game.register(player2, "Anton");
+        game.register(player3, "Alexandr");
+        game.register(player4, "Evgeny");
+        game.register(player5, "Artem");
+        game.register(player6, "Artur");
+        game.register(player7, "Maxim");
+        game.register(player8, "Denis");
+        game.register(player9, "Daniil");
+        game.register(player10, "Alexey");
 
         int actual = game.round("Alexandr", "Artem");
 
@@ -41,16 +41,16 @@ class GameTest {
 
     @Test
     void roundWhenSecondPlayerWin() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
-        game.register(player6);
-        game.register(player7);
-        game.register(player8);
-        game.register(player9);
-        game.register(player10);
+        game.register(player1, "Vladimir");
+        game.register(player2, "Anton");
+        game.register(player3, "Alexandr");
+        game.register(player4, "Evgeny");
+        game.register(player5, "Artem");
+        game.register(player6, "Artur");
+        game.register(player7, "Maxim");
+        game.register(player8, "Denis");
+        game.register(player9, "Daniil");
+        game.register(player10, "Alexey");
 
         int actual = game.round("Alexey", "Artur");
 
@@ -60,16 +60,16 @@ class GameTest {
 
     @Test
     void roundWhenDraw() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
-        game.register(player6);
-        game.register(player7);
-        game.register(player8);
-        game.register(player9);
-        game.register(player10);
+        game.register(player1, "Vladimir");
+        game.register(player2, "Anton");
+        game.register(player3, "Alexandr");
+        game.register(player4, "Evgeny");
+        game.register(player5, "Artem");
+        game.register(player6, "Artur");
+        game.register(player7, "Maxim");
+        game.register(player8, "Denis");
+        game.register(player9, "Daniil");
+        game.register(player10, "Alexey");
 
         int actual = game.round("Vladimir", "Denis");
 
@@ -79,32 +79,32 @@ class GameTest {
 
     @Test
     void shouldExcWhenTwoPlayersUnreg() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
-        game.register(player6);
-        game.register(player7);
-        game.register(player8);
-        game.register(player9);
-        game.register(player10);
+        game.register(player1, "Vladimir");
+        game.register(player2, "Anton");
+        game.register(player3, "Alexandr");
+        game.register(player4, "Evgeny");
+        game.register(player5, "Artem");
+        game.register(player6, "Artur");
+        game.register(player7, "Maxim");
+        game.register(player8, "Denis");
+        game.register(player9, "Daniil");
+        game.register(player10, "Alexey");
         Assertions.assertThrows(NotRegisteredException.class, () -> game.round("Oleg", "Vladislav"));
 
     }
 
     @Test
     void shouldExcWhenFirstPlayerUnreg() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
-        game.register(player6);
-        game.register(player7);
-        game.register(player8);
-        game.register(player9);
-        game.register(player10);
+        game.register(player1, "Vladimir");
+        game.register(player2, "Anton");
+        game.register(player3, "Alexandr");
+        game.register(player4, "Evgeny");
+        game.register(player5, "Artem");
+        game.register(player6, "Artur");
+        game.register(player7, "Maxim");
+        game.register(player8, "Denis");
+        game.register(player9, "Daniil");
+        game.register(player10, "Alexey");
 
         Assertions.assertThrows(NotRegisteredException.class, () -> game.round("Oleg", "Daniil"));
 
@@ -112,16 +112,16 @@ class GameTest {
 
     @Test
     void shouldExcWhenSecondPlayerUnreg() {
-        game.register(player1);
-        game.register(player2);
-        game.register(player3);
-        game.register(player4);
-        game.register(player5);
-        game.register(player6);
-        game.register(player7);
-        game.register(player8);
-        game.register(player9);
-        game.register(player10);
+        game.register(player1, "Vladimir");
+        game.register(player2, "Anton");
+        game.register(player3, "Alexandr");
+        game.register(player4, "Evgeny");
+        game.register(player5, "Artem");
+        game.register(player6, "Artur");
+        game.register(player7, "Maxim");
+        game.register(player8, "Denis");
+        game.register(player9, "Daniil");
+        game.register(player10, "Alexey");
 
         Assertions.assertThrows(NotRegisteredException.class, () -> game.round("Vladimir", "Ivan"));
 
@@ -135,7 +135,7 @@ class GameTest {
 
     @Test
     void shouldWhenOneRegPlayer() {
-        game.register(player4);
+        game.register(player4, "Evgeny");
 
         Assertions.assertThrows(NotRegisteredException.class, () -> game.round("Oleg", "Vladislav"));
 
